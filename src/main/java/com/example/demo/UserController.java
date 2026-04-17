@@ -6,16 +6,19 @@ import java.util.*;
 @RestController
 public class UserController {
 
-    List<User> users = new ArrayList<>();
+    private final UserService userService;
+
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping("/addUser")
     public String addUser(@RequestBody User user) {
-        users.add(user);
-        return "User added successfully!";
+        return userService.addUser(user);
     }
 
     @GetMapping("/getUsers")
     public List<User> getUsers() {
-        return users;
+        return userService.getUsers();
     }
 }
