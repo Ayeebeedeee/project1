@@ -6,14 +6,18 @@ import java.util.*;
 @Service
 public class UserService {
 
-    List<User> users = new ArrayList<>();
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public String addUser(User user) {
-        users.add(user);
-        return "User added successfully!";
+        userRepository.save(user);
+        return "User saved in DB!";
     }
 
     public List<User> getUsers() {
-        return users;
+        return userRepository.findAll();
     }
 }
