@@ -1,7 +1,8 @@
-POST http://localhost:8080/addUser
+POST   http://localhost:8080/localhost:8080/addUserUser
 Content-Type: application/json
 
 {
+  "id":1,
   "name": "Abhyudaya",
   "email": "test@gmail.com"
 }

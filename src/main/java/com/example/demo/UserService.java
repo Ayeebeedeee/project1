@@ -14,7 +14,10 @@ public class UserService {
         userRepository.save(user);
         return "User saved in DB!";
     }
-
+    public String updateUser(User user) {
+    userRepository.save(user);
+    return "User updated successfully!";
+    }
     public List<User> getUsers() {
         return userRepository.findAll();
     }

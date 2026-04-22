@@ -19,4 +19,8 @@ public class UserController {
     public List<User> getUsers() {
         return userService.getUsers();
     }
+    @PutMapping("/updateUser")
+    public String updateUser(@RequestBody User user) {
+    return userService.updateUser(user);
+}
 }
