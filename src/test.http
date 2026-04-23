@@ -1,7 +1,2 @@
-POST   http://localhost:8080/addUser
+DELETE http://localhost:8080/users/999
 Content-Type: application/json
-
-{
-  "name": "Abhyudaya",
-  "email": "test@gmail.com"
-}
