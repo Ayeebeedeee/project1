@@ -21,4 +21,12 @@ public class UserService {
     public List<User> getUsers() {
         return userRepository.findAll();
     }
+    public String deleteUser(Integer id) {
+    if (userRepository.existsById(id)) {
+        userRepository.deleteById(id);
+        return "User deleted successfully!";
+    } else {
+        return "User not found!";
+    }
+    }
 }
