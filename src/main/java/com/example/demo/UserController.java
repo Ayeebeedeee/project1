@@ -6,36 +6,27 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    // CREATE
-    @PostMapping
+    @PostMapping("/addUser")
     public String addUser(@RequestBody User user) {
         return userService.addUser(user);
     }
 
-    // GET ALL
-    @GetMapping
+    @GetMapping("/getUsers")
     public List<User> getUsers() {
         return userService.getUsers();
     }
 
-    // GET BY ID 🔥
-    @GetMapping("/{id}")
-    public User getUser(@PathVariable Integer id) {
-        return userService.getUserById(id);
-    }
-
-    // UPDATE
-    @PutMapping
+    @PutMapping("/updateUser")
     public String updateUser(@RequestBody User user) {
         return userService.updateUser(user);
     }
 
-    // DELETE
     @DeleteMapping("/{id}")
     public String deleteUser(@PathVariable Integer id) {
         return userService.deleteUser(id);

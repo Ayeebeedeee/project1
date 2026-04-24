@@ -13,7 +13,7 @@ public class UserService {
     // CREATE
     public String addUser(User user) {
         userRepository.save(user);
-        return "User saved in DB!";
+        return "User saved!";
     }
 
     // UPDATE
@@ -23,18 +23,12 @@ public class UserService {
         }
 
         userRepository.save(user);
-        return "User updated successfully!";
+        return "User updated!";
     }
 
-    // GET ALL
+    // GET
     public List<User> getUsers() {
         return userRepository.findAll();
-    }
-
-    // GET BY ID (NEW 🔥)
-    public User getUserById(Integer id) {
-        return userRepository.findById(id)
-                .orElseThrow(() -> new UserNotFoundException("User not found with id: " + id));
     }
 
     // DELETE
@@ -44,6 +38,6 @@ public class UserService {
         }
 
         userRepository.deleteById(id);
-        return "User deleted successfully!";
+        return "User deleted!";
     }
 }
